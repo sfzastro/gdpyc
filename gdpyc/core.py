@@ -11,7 +11,8 @@ import os
 import warnings
 
 import numpy as np
-import pkg_resources
+from importlib import resources
+from pathlib import Path
 from astropy import units as u
 from astropy.coordinates import Galactic
 from astropy.io import fits
@@ -27,7 +28,7 @@ class Map(object):
     A class with common methods for HEALpix maps.
     """
 
-    _data_path = pkg_resources.resource_filename("gdpyc", "data")
+    _data_path = Path(resources.files("gdpyc").joinpath("data"))
     _map_type = None
     _maps = []
 
